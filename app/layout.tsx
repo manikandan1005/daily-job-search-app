@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Navbar/>
-        <div className="mt-12 mx-40! p-3">
+        <div className=" mt-14 px-10 lg:mt-18! lg:mx-40! flex  items-center">
           {children}
         </div>
         </body>

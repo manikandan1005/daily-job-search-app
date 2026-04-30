@@ -5,6 +5,7 @@ import JobCart from './JobCart'
 const mockData = [
   {
     title: "Analytics Internship 2026 – Complete Guide for Freshers and Students",
+    banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     categories: ["FRESHERS", "INTERNSHIPS"],
     description: "If you are looking to build a career in data analytics...",
     author: "Chandan Mahato",
@@ -14,7 +15,7 @@ const mockData = [
   },
   {
     title: "Freshers Software Engineer 2026 – Complete Job Guide for Entry-Level Candidates",
-    categories: ["FRESHERS", "EXPERIENCED"],
+    categories: ["FRESHERS", "EXPERIENCED"],banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     description: "If you are a recent graduate looking to start your career...",
     author: "Chandan Mahato",
     location: ["Chennai", "Bangalore"],
@@ -23,7 +24,7 @@ const mockData = [
   },
   {
     title: "IT Apprentice 2026 – Cybersecurity Internship Opportunity",
-    categories: ["FRESHERS", "TRAINEE"],
+    categories: ["FRESHERS", "TRAINEE"],banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     description: "If you are looking to start your career in cybersecurity...",
     author: "Chandan Mahato",
     location: ["Chennai", "Bangalore"],
@@ -32,7 +33,7 @@ const mockData = [
   },
   {
     title: "Software Engineer Apprentices 2026 – Full Stack Internship Opportunity",
-    categories: ["FRESHERS", "EXPERIENCED"],
+    categories: ["FRESHERS", "EXPERIENCED"],banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     description: "If you are a fresher or final-year student looking to start...",
     author: "Chandan Mahato",
     location: ["Chennai", "Bangalore"],
@@ -41,7 +42,7 @@ const mockData = [
   },
   {
     title: "Qualcomm Off Campus Drive 2026 – Hardware Engineer Role for Freshers",
-    categories: ["FRESHERS", "TRAINEE"],
+    categories: ["FRESHERS", "TRAINEE"],banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     description: "If you are aiming to start your career in core engineering...",
     author: "Chandan Mahato",
     location: ["Chennai", "Bangalore"],
@@ -52,7 +53,7 @@ const mockData = [
     title: "Airbus Systems Apprentice 2026 – Complete Guide for Freshers",
     categories: ["FRESHERS", "TRAINEE"],
     description: "If you are a fresher dreaming of working in the aerospace industry...",
-    author: "Chandan Mahato",
+    author: "Chandan Mahato",banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     location: ["Chennai", "Bangalore"],
     jobType: ["Remote", "Onsite"],
     date: "April 28, 2026"
@@ -61,9 +62,10 @@ const mockData = [
     title: "Data Operations Apprentice 2026 – Complete Job Guide for Freshers",
     categories: ["FRESHERS", "TRAINEE"],
     description: "If you are a fresher looking to start your career in data...",
-    author: "Chandan Mahato",
+    author: "Chandan Mahato",c:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
     location: ["Chennai", "Bangalore"],
-    jobType: ["Remote", "Onsite", "Hybrid"],
+    jobType: ["Remote", "Onsite", "Hybrid"],banner:"https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png",
+    
     date: "April 28, 2026"
   }
 ];
@@ -87,7 +89,7 @@ export default function JobList() {
   }, []);
 
   return (
-    <div className='flex flex-col gap-5 p-3 m-2 bg-red-800'>
+    <div className='flex flex-col gap-2 p-3 w-full '>
       {loading
         ? Array.from({ length: 5 }).map((_, i) => (
             <JobCart key={i} prop={null} />   // skeleton cards
