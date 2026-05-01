@@ -83,7 +83,7 @@ export default function JobList() {
     const timer = setTimeout(() => {
       setData(mockData);
       setLoading(false);
-    }, 5000); // simulates API delay
+    }, 1000); // simulates API delay
 
     return () => clearTimeout(timer);
   }, []);

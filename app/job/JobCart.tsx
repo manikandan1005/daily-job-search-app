@@ -1,43 +1,78 @@
-"use client"
-import React, { useState, useEffect } from 'react';
+'use client';
+
+import React from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
-import { Card, Flex } from 'antd';
+import { Card } from 'antd';
 import { useRouter } from 'next/navigation';
 
 export default function JobCart({ prop }: any) {
   const router = useRouter();
- // const img: string = "https://www.jobalerts4u.in/wp-content/uploads/2025/12/Feature-21.png";
 
   return (
     <Card
-      loading={!prop}   // loading when prop is null/undefined (API not yet returned)
+      loading={!prop}
       hoverable
-      onClick={() => prop && router.push("/job-description")}
+      onClick={() => prop && router.push('/job-description')}
       style={{ minWidth: 280, maxWidth: 900 }}
-      styles={{body: { padding: 3 }}}
+      styles={{ body: { padding: 3 } }}
     >
-      <div className="flex gap-4 flex-col lg:flex-row items-start ">
-        <img src={prop?.banner} alt={prop?.title} className="w-100 h-50" />
-        <div className="flex gap-1 flex-col">
-          <p className="font-bold line-clamp-2 text-xl">{prop?.title}</p>
-          <div className="flex gap-4">
-            {prop?.categories.map((i: string) => (
-              <li className="bg-blue-400 text-xs! text-white px-1 py-0.3" key={i}>{i}</li>
+      <div className="flex flex-col lg:flex-row items-start gap-4">
+
+        {/* Banner */}
+        <img
+          src={prop?.banner}
+          alt={prop?.title}
+          className="w-full lg:w-48 h-auto object-cover rounded-md flex-shrink-0"
+        />
+
+        {/* Content */}
+        <div className="flex flex-col gap-2 p-2 flex-1">
+
+          {/* Title */}
+          <p className="font-bold text-xl leading-snug line-clamp-2 m-0">{prop?.title}</p>
+
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2">
+            {prop?.categories?.map((i: string) => (
+              <span
+                key={i}
+                className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded"
+              >
+                {i}
+              </span>
             ))}
           </div>
-          <div>
-            <span className='font-bold'><ClockCircleOutlined /> {prop?.date}</span>
-          </div>
-          <div className="flex gap-2">
-            {prop?.location.map((loc: string) => (
-              <span key={loc} className="bg-green-400 text-xs! text-white px-1 py-0.3">{loc}</span>
+
+          {/* Date */}
+          <span className="font-semibold text-sm text-gray-600">
+            <ClockCircleOutlined className="mr-1" />
+            {prop?.date}
+          </span>
+
+          {/* Location */}
+          <div className="flex flex-wrap gap-2">
+            {prop?.location?.map((loc: string) => (
+              <span
+                key={loc}
+                className="bg-green-500 text-white text-xs px-2 py-0.5 rounded"
+              >
+                {loc}
+              </span>
             ))}
           </div>
-          <div className="flex gap-2">
-            {prop?.jobType.map((type: string) => (
-              <span key={type} className="bg-purple-400 text-xs! text-white px-2 py-0.3">{type}</span>
+
+          {/* Job Type */}
+          <div className="flex flex-wrap gap-2">
+            {prop?.jobType?.map((type: string) => (
+              <span
+                key={type}
+                className="bg-purple-500 text-white text-xs px-2 py-0.5 rounded"
+              >
+                {type}
+              </span>
             ))}
           </div>
+
         </div>
       </div>
     </Card>
