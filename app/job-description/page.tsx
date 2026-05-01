@@ -4,7 +4,7 @@ import { WhatsAppOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { Flex } from 'antd';
 import FollowUs from '@/components/ui/FollowUs';
 import AddButton from '@/components/ui/AddButton';
-import { BulletList } from '@/components/ui/BulletList';
+import  BulletList  from '@/components/ui/BulletList';
 import { OverviewCard } from '@/components/ui/OverviewCard';
 import { Section } from '@/components/ui/Section';
 
@@ -194,7 +194,7 @@ export default function JobDescription() {
 
       {/* Responsibilities */}
       <Section title="Key Responsibilities">
-        <BulletList items={job.responsibilities} />
+        <BulletList items={job.responsibilities} color="orange" />
       </Section>
 
       <Divider />
@@ -206,13 +206,13 @@ export default function JobDescription() {
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
               Technical Skills
             </p>
-            <BulletList items={job.technicalSkills} />
+            <BulletList items={job.technicalSkills} color="orange" />
           </div>
           <div>
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
               Professional Skills
             </p>
-            <BulletList items={job.professionalSkills} />
+            <BulletList items={job.professionalSkills} color="orange" />
           </div>
         </div>
       </Section>
@@ -235,7 +235,7 @@ export default function JobDescription() {
 
       {/* Benefits */}
       <Section title="Benefits">
-        <BulletList items={job.benefits} />
+        <BulletList items={job.benefits} color="orange" />
       </Section>
 
       <Divider />
@@ -258,7 +258,7 @@ export default function JobDescription() {
 
       {/* Preparation Tips */}
       <Section title="Interview Preparation Tips">
-        <BulletList items={job.preparationTips} />
+        <BulletList items={job.preparationTips} color="orange" />
       </Section>
 
       <Divider />

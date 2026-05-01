@@ -1,12 +1,13 @@
-export function BulletList({ items }: { items: string[] }) {
+export default function BulletList({ items, color = "indigo" }: { items: string[], color?: "indigo" | "orange" }) {
+  const dot = color === "orange" ? "bg-orange-400" : "bg-indigo-400"
   return (
-    <ul className="flex flex-col gap-2 p-0 m-0 list-none">
-      {items.map((item, i) => (
-        <li key={i} className="relative pl-5 text-sm text-gray-600 leading-relaxed">
-          <span className="absolute left-0 top-2 w-2 h-2 rounded-full bg-orange-500" />
+    <ul className="space-y-1">
+      {items.map((item) => (
+        <li key={item} className="flex items-center gap-2 text-gray-600 text-sm">
+          <span className={`w-1.5 h-1.5 rounded-full ${dot} flex-shrink-0`} />
           {item}
         </li>
       ))}
     </ul>
-  );
+  )
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Section } from '../privacy-data'
-import BulletList from './BulletList'
+import BulletList from '@/components/ui/BulletList'
+
 
 export default function SectionContent({ section }: { section: Section }) {
   const { type, description, personal, nonPersonal, items, note, warning, optOutUrl } = section
@@ -10,7 +11,7 @@ export default function SectionContent({ section }: { section: Section }) {
       <div>
         <p className="font-semibold text-gray-800 mb-2">a. Personal Information</p>
         <BulletList items={personal!} />
-      </div>
+              </div>
       <div>
         <p className="font-semibold text-gray-800 mb-2">b. Non-Personal Information</p>
         <BulletList items={nonPersonal!} />
