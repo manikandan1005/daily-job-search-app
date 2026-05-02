@@ -1,18 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import { useRouter } from 'next/navigation';
 
 export default function JobCart({ prop }: any) {
   const router = useRouter();
+  useEffect(()=>{
+    console.log(prop)
+  },[])
 
   return (
     <Card
       loading={!prop}
       hoverable
-      onClick={() => prop && router.push('/job-description')}
+      onClick={() => prop && router.push(`/job-description/${prop.id}`)}
       style={{ minWidth: 280, maxWidth: 900 }}
       styles={{ body: { padding: 3 } }}
     >
