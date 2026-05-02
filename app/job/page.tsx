@@ -9,12 +9,6 @@ import { useFetch } from '@/hooks/useFetch';
 
 export default function JobList() {
   const { data: dataFromApi,loading, err  }=useFetch("/jobs")
- // const [jobs, setJobs] = useState<any[]>([]);
-  //const [loading, setLoading] = useState<boolean>(true);
-
-  
-
-
 
    console.log(dataFromApi)
 
