@@ -1,27 +1,43 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useSearchParams } from 'next/navigation'
 import JobCart from './JobCart'
-import { useFetch } from '@/hooks/useFetch';
-
-
-
-
+import { useFetch } from '@/hooks/useFetch'
 
 export default function JobList() {
-  const { data: dataFromApi,loading, err  }=useFetch("/jobs")
+  const { data: dataFromApi, loading, err } = useFetch("/jobs")
+  const searchParams = useSearchParams()
+  const type = searchParams.get("type")  // "fresher" | "internship" | "experience" | null
+  const search = searchParams.get("search")?.toLowerCase()
 
-   console.log(dataFromApi)
+const filteredData = dataFromApi?.filter((job: any) => {
+  const matchesType = type
+    ? job.categories?.some((c: string) =>
+        c.toLowerCase().includes(type.toLowerCase())
+      )
+    : true
+
+  const matchesSearch = search
+    ? job.location?.some((loc: string) =>
+        loc.toLowerCase().includes(search)
+      ) ||
+      job.categories?.some((c: string) =>
+        c.toLowerCase().includes(search)
+      )
+    : true
+
+  return matchesType && matchesSearch})
 
   return (
-    <div className='flex flex-col gap-2 p-3 w-full '>
+    <div className='flex flex-col gap-2 p-3 w-full'>
       {loading
         ? Array.from({ length: 5 }).map((_, i) => (
-            <JobCart key={i} prop={null} />   // skeleton cards
+            <JobCart key={i} prop={null} />
           ))
-        : dataFromApi.map((item: any, index: number) => (
-            <JobCart key={item.id} prop={item} />  // real data
+        : filteredData?.map((item: any) => (
+            <JobCart key={item.id} prop={item} />
           ))
       }
     </div>
-  );
+  )
 }
