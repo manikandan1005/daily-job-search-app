@@ -23,9 +23,10 @@ export default function JobDescription({ job }: { job: any }) {
     }
   };
 
-  const handleWhatsApp = () => {
-    window.open(`https://wa.me/?text=${encodeURIComponent(j?.title + ' ' + j?.applyLink)}`);
-  };
+const handleWhatsApp = () => {
+  const message = `${j?.title} ${window.location.href}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`);
+};
 
   return (
     <Flex gap={"10"}>
